@@ -1,25 +1,44 @@
+# name: Python Test
+
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:  # 수동 실행도 허용
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: 코드 체크아웃
+#         uses: actions/checkout@v3
+
+#       - name: Python 설치
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: '3.11'
+
+#       - name: 의존성 설치
+#         run: pip install -r requirements.txt
+
+#       - name: 유닛 테스트 실행
+#         run: python -m unittest discover -s tests
+        # 추가
+        # 수정 확인용 주석
+
 name: Python Test
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:  # 수동 실행도 허용
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
-  build:
+  hello-world:
     runs-on: ubuntu-latest
     steps:
-      - name: 코드 체크아웃
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Python 설치
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: 의존성 설치
-        run: pip install -r requirements.txt
-
-      - name: 유닛 테스트 실행
-        run: python -m unittest discover -s tests
+      - name: Say Hello
+        run: echo "🎉 GitHub Actions 작동 성공!!"
